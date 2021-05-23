@@ -1,0 +1,4 @@
+.action_pair {
+  display: flex;
+  justify-content: space-evenly;
+}

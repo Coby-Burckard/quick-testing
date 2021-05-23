@@ -6,9 +6,6 @@ const display = $("#id_display")
 // event listeners
 runButton.on("click", onClickRun)
 
-/*
-  interacting with extension and chrome
-*/
 function onClickRun() {
   const actionSet = buildActionSet()
   sendActions(actionSet)
@@ -17,7 +14,7 @@ function onClickRun() {
 function buildActionSet() {
   const actionSet = []
   const actionPairs = inputForm.find(".action_pair")
-  actionPairs.each((ind, elem) => {
+  actionPairs.each((i, elem) => {
     const pair = $(elem)
     const event = pair.find(".action_event").val()
     const selector = pair.find(".action_selector").val()

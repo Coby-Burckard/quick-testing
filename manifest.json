@@ -1,0 +1,13 @@
+{
+  "name": "Work and rest",
+  "description": "A timer to alert users when it is time for a break",
+  "version": "0.1",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions":  ["storage", "activeTab", "scripting"]
+}

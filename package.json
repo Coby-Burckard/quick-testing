@@ -1,0 +1,22 @@
+{
+  "name": "work-and-rest-extension",
+  "version": "1.0.0",
+  "description": "An extension which allows users to quickly fill out forms in development",
+  "main": "popup.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Coby-Burckard/work-and-rest-extension.git"
+  },
+  "author": "Coby Burckard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Coby-Burckard/work-and-rest-extension/issues"
+  },
+  "homepage": "https://github.com/Coby-Burckard/work-and-rest-extension#readme",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  }
+}

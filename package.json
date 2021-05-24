@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Coby-Burckard/work-and-rest-extension#readme",
   "dependencies": {
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "uuid": "^8.3.2"
   }
 }

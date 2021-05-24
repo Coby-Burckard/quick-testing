@@ -5,21 +5,32 @@
     <title>Work and Rest</title>
   </head>
   <body>
-    <h1>Interactions</h1>
-    <form id="id_input_form">
-      <div class="action_pair">
-        <select class="action_event">
-          <option value="click">Click</option>
-        </select>
-        <input type="text" id="id_input_1" class="action_selector"/>
+    <h1>Interact</h1>
+    <form id="input-form">
+      <div class="input-grid">
       </div>
-      <button id="id_add_button" type="button">Add New</button>
+      
+      <div class="all-button-container">
+      </div>
+      <button id="add-button" type="button">Add New</button>
+      <select id="add-select">
+        <option value="element">
+          Element
+        </option>
+        <option value="button">
+          Button
+        </option>
+        <option value="text">
+          Input
+        </option>
+      </select>
+      <span>interaction</span>
       <div class="button-container">
-        <button id="id_start_button" type="button">Start</button>
-        <button id="id_save_button" type="button">Save</button>
+        <button id="start-button" type="button">Start</button>
+        <button id="save-button" type="button">Save</button>
       </div>
     </form>
 
   </body>
-  <script src="extension.js" ></script>
+  <script src="extension.js" type="module"></script>
 </html>

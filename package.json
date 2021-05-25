@@ -4,8 +4,8 @@
   "description": "An extension which allows users to quickly fill out forms in development",
   "main": "popup.html",
   "scripts": {
-    "dev": "parcel watch extension.html src/content/content.js",
-    "build": "parcel build",
+    "dev": "parcel watch extension.html content.js",
+    "build": "parcel build extension.html content.js",
     "test": "test"
   },
   "repository": {
@@ -21,5 +21,9 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "cssnano": "^5.0.4",
+    "postcss": "^8.3.0"
   }
 }

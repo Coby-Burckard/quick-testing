@@ -4,12 +4,12 @@
   "version": "0.1",
   "manifest_version": 3,
   "action": {
-    "default_popup": "extension.html"
+    "default_popup": "dist/extension.html"
   },
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["public/content.js"]
+      "js": ["dist/content.js"]
     }
   ],
   "permissions": ["storage", "activeTab", "scripting"]

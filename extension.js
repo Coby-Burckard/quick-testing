@@ -1,81 +1,84 @@
 // variable selection
-const inputForm = $("#input-form")
-const runButton = inputForm.find("#start-button")
-const addButton = inputForm.find("#add-button")
+const inputForm = $("#input-form");
+const runButton = inputForm.find("#start-button");
+const addButton = inputForm.find("#add-button");
 
 // on extension start
-runLoad()
+runLoad();
 
 // event listeners
-runButton.on("click", onClickRun)
-addButton.on("click", onClickAdd)
+runButton.on("click", onClickRun);
+addButton.on("click", onClickAdd);
 
 // load
 function runLoad() {
-  console.log("extension has started")
+  console.log("extension has started");
 }
 
 /*
   CR-D
     todo:
-      retreive
+      retrieve
       delete
 */
 function onClickAdd() {
-  console.log("add clicked")
-  const elementType = $("#add-select").val()
-  console.log("submited a new element of type", elementType)
+  console.log("add clicked");
+  const elementType = $("#add-select").val();
+  console.log("submited a new element of type", elementType);
   if (elementType === "element") {
-    setError("select an element")
+    setError("select an element");
   } else {
-    createActionRow({ elementType })
+    createActionRow({ elementType });
   }
 }
 
 //run
 function onClickRun() {
-  const actionSet = buildActionSet()
-  sendActions(actionSet)
+  const actionSet = buildActionSet();
+  sendActions(actionSet);
 }
+
+/*
+  DB integration
+*/
 
 /*
   Helpers
     todo: 
       validate (for storage or dom)
-      store
-      retreive
       setError (actually update extension)
 */
 function buildActionSet() {
-  const actionSet = []
-  const actionPairs = inputForm.find(".action_pair")
+  const actionSet = [];
+  const actionPairs = inputForm.find(".action_pair");
   actionPairs.each((i, elem) => {
-    const pair = $(elem)
-    const event = pair.find(".action_event").val()
-    const selector = pair.find(".action_selector").val()
+    const pair = $(elem);
+    const event = pair.find(".action_event").val();
+    const selector = pair.find(".action_selector").val();
     actionSet.push({
       event,
       selector,
-    })
-  })
-  return actionSet
+    });
+  });
+  return actionSet;
 }
 
 async function sendActions(actionSet) {
-  console.log("sending message to tab")
-  const queryOptions = { active: true, currentWindow: true }
-  const [tab] = await chrome.tabs.query(queryOptions)
-  chrome.tabs.sendMessage(tab.id, actionSet)
+  console.log("sending message to tab");
+  const queryOptions = { active: true, currentWindow: true };
+  const [tab] = await chrome.tabs.query(queryOptions);
+  chrome.tabs.sendMessage(tab.id, actionSet);
 }
 
 function setError(error) {
-  console.log(error)
+  console.log(error);
 }
 
 /*
   Extension DOM manipulation
     todo: 
       deleteActionRow
+      support timeout event
 */
 function createActionRow({
   uuid,
@@ -84,16 +87,17 @@ function createActionRow({
   selector = "",
   value = "",
 }) {
-  const dataUuid = uuid ?? "1234"
-  const hiddenNode = `<input type="hidden" data-uuid="${dataUuid}" />`
-  const elementTypeNode = `<p data-uuid="${dataUuid}">${elementType}</p>`
+  const dataUuid = uuid ?? "1234";
+  const hiddenNode = `<input type="hidden" data-uuid="${dataUuid}" />`;
+  const elementTypeNode = `<p data-uuid="${dataUuid}">${elementType}</p>`;
 
   //event type dropdown
-  const eventOptionNodes = generateEventOptionNodes(elementType)
-  const eventTypeSelect = `<select data-uuid="${dataUuid}" value=${eventType}>${eventOptionNodes}</select>`
+  const eventOptionNodes = generateEventOptionNodes(elementType);
+  const eventTypeSelect = `<select data-uuid="${dataUuid}" value=${eventType}>${eventOptionNodes}</select>`;
 
-  const selectorNode = `<input type="text" data-uuid="${dataUuid}" value="${selector}" placeholder="selector"/>`
-  const valueNode = `<input type="text" data-uuid="${dataUuid}" value="${value}" placeholder="value"/>`
+  const selectorNode = `<input type="text" data-uuid="${dataUuid}" value="${selector}" placeholder="selector"/>`;
+  const valueNode = `<input type="text" data-uuid="${dataUuid}" value="${value}" placeholder="value"/>`;
+  const deleteButton = `<button type="button" data-uuid=${dataUuid}>X</button>`;
 
   $(".input-grid").append(
     [
@@ -102,21 +106,22 @@ function createActionRow({
       eventTypeSelect,
       selectorNode,
       valueNode,
+      deleteButton,
     ].join("")
-  )
+  );
 }
 
 function generateEventOptionNodes(elementType, eventType) {
-  let options = []
+  let options = [];
 
   switch (elementType) {
     case "button":
-      options = ["click"]
-      break
+      options = ["click"];
+      break;
     case "text":
-      options = ["type"]
-      break
+      options = ["type"];
+      break;
   }
 
-  return options.map((option) => `<option>${option}</option>`).join("")
+  return options.map((option) => `<option>${option}</option>`).join("");
 }

@@ -42,6 +42,8 @@ function onClickRun() {
   Helpers
     todo: 
       validate (for storage or dom)
+      store
+      retreive
       setError (actually update extension)
 */
 function buildActionSet() {
@@ -73,7 +75,6 @@ function setError(error) {
 /*
   Extension DOM manipulation
     todo: 
-      createActionRow
       deleteActionRow
 */
 function createActionRow({

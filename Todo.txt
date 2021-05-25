@@ -1,4 +1,4 @@
-Extension.js
+Extension
 - add parcel to budle extension.js
 - break js into seperate files
 - uuid v4 implementation
@@ -9,6 +9,11 @@ Extension.js
     - validate form
     - display error on extension
 
-Content.js
+Content
 - implement recursive execution
 - support timeout event
+
+Done
+Extension
+
+Content

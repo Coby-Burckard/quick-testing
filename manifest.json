@@ -4,16 +4,13 @@
   "version": "0.1",
   "manifest_version": 3,
   "action": {
-    "default_popup": "popup.html"
-  },
-  "background": {
-    "service_worker": "background.js"
+    "default_popup": "extension.html"
   },
   "content_scripts": [
     {
       "matches": ["*://*/*"],
-      "js": ["content.js"]
+      "js": ["public/content.js"]
     }
   ],
-  "permissions":  ["storage", "activeTab", "scripting"]
+  "permissions": ["storage", "activeTab", "scripting"]
 }

@@ -1,2 +1,2 @@
 # work-and-rest-extension
-A chrome extension that alerts the user when it is time for a break.  The user can specify the amount of time before the alert will be triggered
+A chrome extension designed to automate parts of the manual testing process.  Currently filling out forms and clicking buttons are supported.  Buttons and inputs are selected by their css selector.  

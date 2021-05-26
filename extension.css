@@ -1,4 +1,3 @@
-.action_pair {
-  display: flex;
-  justify-content: space-evenly;
+.input-grid {
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }

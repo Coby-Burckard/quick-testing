@@ -1,5 +1,4 @@
 Extension
-- add parcel to budle extension.js
 - break js into seperate files
 - uuid v4 implementation
 - delete rows

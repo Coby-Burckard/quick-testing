@@ -4,7 +4,5 @@ A chrome extension designed to automate parts of the manual testing process. Cur
 
 # Local Development
 
-1. Add extension to chrome
-   extension icon (puzzle piece) -> manage extensions -> load upacked and select the base directory
-2. Run dev
-   run `npm run dev` in the base directory and parcel will watch for changes to extension.html, content.js, and their respective src directories.
+1. Add extension to chrome. Click the extension icon (puzzle piece) -> manage extensions -> load upacked and select the base directory
+2. Run `npm run dev` in the base directory and parcel will watch for changes to extension.html, content.js, and their respective src directories.
